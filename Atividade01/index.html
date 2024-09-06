@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Aluno</title>
+    <script>
+        function transformarEmJSON() {
+            // Obtendo os valores dos campos
+            const mat = document.getElementById('mat').value;
+            const nome = document.getElementById('nome').value;
+            const idade = document.getElementById('idade').value;
+            const cpf = document.getElementById('cpf').value;
+
+            // Validação: Checar se algum campo está vazio
+            if (!mat || !nome || !idade || !cpf) {
+                alert("Todos os campos devem ser preenchidos!");
+                return;
+            }
+
+            // Validação: A idade deve ser um número inteiro
+            if (!Number.isInteger(Number(idade)) || idade <= 0) {
+                alert("A idade deve ser um número inteiro válido!");
+                return;
+            }
+
+            // Criação do objeto aluno
+            const aluno = {
+                mat: mat,
+                nome: nome,
+                idade: Number(idade),
+                cpf: cpf
+            };
+
+            // Exibindo o objeto aluno em formato JSON
+            document.getElementById('resultado').textContent = JSON.stringify(aluno, null, 2);
+        }
+    </script>
+</head>
+<body>
+    <h1>Cadastro de Aluno</h1>
+    
+    <!-- Formulário de Aluno -->
+    <form>
+        <label for="mat">Matrícula:</label><br>
+        <input type="text" id="mat" name="mat"><br><br>
+
+        <label for="nome">Nome:</label><br>
+        <input type="text" id="nome" name="nome"><br><br>
+
+        <label for="idade">Idade:</label><br>
+        <input type="text" id="idade" name="idade"><br><br>
+
+        <label for="cpf">CPF:</label><br>
+        <input type="text" id="cpf" name="cpf"><br><br>
+
+        <button type="button" onclick="transformarEmJSON()">Transformar em JSON</button>
+    </form>
+
+    <!-- Exibição do JSON -->
+    <h2>Resultado JSON:</h2>
+    <pre id="resultado"></pre>
+</body>
+</html>
