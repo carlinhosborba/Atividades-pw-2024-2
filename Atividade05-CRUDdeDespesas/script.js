@@ -1,7 +1,9 @@
 // scripts.js
-Parse.initialize("YOUR_APP_ID", "YOUR_JS_KEY"); // Substitua com suas credenciais
-Parse.serverURL = "https://parseapi.back4app.com/";
-
+const baseUrl = "https://parseapi.back4app.com/Despesas"
+const headers = {
+    "X-Parse-Application-Id": "hb6Y306wmPOojZd4ap8lGw6UjCdoGI0j30Rq0Z6Y" ,
+    "X-Parse-REST-API-KEY": "bI8Tad5TvISseJvLyvZevm7O6Qy6OXt8DCeYOu8H" ,
+}
 async function createExpense() {
     const description = document.getElementById('description').value;
     const amount = parseFloat(document.getElementById('amount').value);
