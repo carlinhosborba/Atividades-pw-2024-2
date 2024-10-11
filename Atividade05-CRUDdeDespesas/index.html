@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD de Despesas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h1>Despesas</h1>
+
+    <div class="expense-form">
+        <h2>Cadastrar Despesa</h2>
+        <label>Descrição: <input type="text" id="description"></label>
+        <label>Valor: <input type="number" id="amount"></label>
+        <button onclick="createExpense()">Cadastrar</button>
+    </div>
+
+    <div class="expense-list">
+        <h2>Lista de Despesas</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Descrição</th>
+                    <th>Valor</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="expenseTableBody">
+                <!-- Despesas serão listadas aqui -->
+            </tbody>
+        </table>
+        <h3>Total: R$ <span id="totalAmount">0</span></h3>
+    </div>
+
+    <script src="https://unpkg.com/parse/dist/parse.min.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>
